@@ -8,6 +8,7 @@ describe Cell do
       @cruiser = Ship.new("Cruiser", 3)
 
       @cell_2 = Cell.new("C3")
+      @cell_2.place_ship(@cruiser)
     end
 
     it '1. exists' do
@@ -50,16 +51,26 @@ describe Cell do
     end
 
     it '7. can render the cell status with an optional ship argument' do
-      @cell_2.place_ship(@cruiser)
       expect(@cell_2.render).to eq(" . ")
       expect(@cell_2.render(true)).to eq(" S ")
     end
 
     it '8. can be fired upon' do 
-      @cell_2.place_ship(@cruiser)
       @cell_2.fire_upon
 
       expect(@cell_2.render).to eq(" H ")
+    end
+
+    it '9. can render sunk ship' do
+      expect(@cell_2.render).to eq(" . ")
+
+      @cell_2.fire_upon
+      expect(@cell_2.render).to eq(" H ")
+
+      @cell_2.ship.hit
+      @cell_2.ship.hit
+
+      expect(@cell_2.render).to eq(" X ")
     end
   end
 end

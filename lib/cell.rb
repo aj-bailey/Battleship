@@ -30,6 +30,8 @@ class Cell
   def render(true_value = false)
     if true_value && @ship != nil
       return " S " 
+    elsif @ship != nil && fired_upon && @ship.health == 0 
+      return " X "
     elsif @ship == nil && fired_upon
       return " M "
     elsif @ship != nil && fired_upon
