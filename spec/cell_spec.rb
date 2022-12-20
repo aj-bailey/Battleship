@@ -51,7 +51,15 @@ describe Cell do
 
     it '7. can render the cell status with an optional ship argument' do
       @cell_2.place_ship(@cruiser)
+      expect(@cell_2.render).to eq(" . ")
       expect(@cell_2.render(true)).to eq(" S ")
+    end
+
+    it '8. can be fired upon' do 
+      @cell_2.place_ship(@cruiser)
+      @cell_2.fire_upon
+
+      expect(@cell_2.render).to eq(" H ")
     end
   end
 end
