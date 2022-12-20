@@ -24,7 +24,8 @@ class Cell
   end
 
   def fire_upon
-    @ship.hit
+    @ship.hit if @ship != nil
+    @render = " M " if @ship == nil
     @fired_upon = true
   end 
 

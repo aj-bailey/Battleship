@@ -41,6 +41,10 @@ describe Cell do
     
     it '6. can render the cell status' do
       expect(@cell.render).to eq(' . ')
+
+      @cell.fire_upon
+
+      expect(@cell.render).to eq(" M ")
     end
   end
 end
