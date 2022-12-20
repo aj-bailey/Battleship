@@ -18,6 +18,11 @@ describe Ship do
 
     it '3. can check if sunk' do
       expect(@cruiser.sunk?).to be(false)
+      @cruiser.hit
+      @cruiser.hit
+      @cruiser.hit
+
+      expect(@cruiser.sunk?).to be(true)
     end
 
     it '4. can be hit' do
@@ -27,6 +32,5 @@ describe Ship do
       @cruiser.hit
       expect(@cruiser.health).to eq(1)
     end
-
   end
 end
