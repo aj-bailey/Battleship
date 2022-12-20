@@ -6,6 +6,8 @@ describe Cell do
     before(:each) do
       @cell = Cell.new("B4")
       @cruiser = Ship.new("Cruiser", 3)
+
+      @cell_2 = Cell.new("C3")
     end
 
     it '1. exists' do
@@ -45,6 +47,11 @@ describe Cell do
       @cell.fire_upon
 
       expect(@cell.render).to eq(" M ")
+    end
+
+    it '7. can render the cell status with an optional ship argument' do
+      @cell_2.place_ship(@cruiser)
+      expect(@cell_2.render(true)).to eq(" S ")
     end
   end
 end

@@ -29,7 +29,8 @@ class Cell
     @fired_upon = true
   end 
 
-  def render
+  def render(contains_ship = false)
+    return " S " if contains_ship && @ship != nil
     @render
   end
 end
