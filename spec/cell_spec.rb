@@ -29,5 +29,14 @@ describe Cell do
 
       expect(@cell.ship).to be(@cruiser)
     end
+
+    it '5. can check if fired upon' do
+      @cell.place_ship(@cruiser) 
+      expect(@cell.fired_upon?).to eq(false)
+      
+      @cell.fire_upon
+
+      expect(@cell.fired_upon?).to eq(true)
+    end
   end
 end
