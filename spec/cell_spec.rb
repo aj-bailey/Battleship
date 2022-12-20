@@ -19,6 +19,15 @@ describe Cell do
 
     it '3. can check if empty' do
       expect(@cell.empty?).to eq(true)
+
+      @cell.place_ship(@cruiser)
+      expect(@cell.empty?).to eq(false)
+    end
+    
+    it '4. can place ship' do
+      @cell.place_ship(@cruiser)
+
+      expect(@cell.ship).to be(@cruiser)
     end
   end
 end
