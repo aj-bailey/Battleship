@@ -33,10 +33,14 @@ describe Cell do
     it '5. can check if fired upon' do
       @cell.place_ship(@cruiser) 
       expect(@cell.fired_upon?).to eq(false)
-      
+
       @cell.fire_upon
 
       expect(@cell.fired_upon?).to eq(true)
+    end
+    
+    it '6. can render the cell status' do
+      expect(@cell.render).to eq(' . ')
     end
   end
 end
